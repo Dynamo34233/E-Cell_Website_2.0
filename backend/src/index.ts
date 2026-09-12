@@ -4,15 +4,14 @@ import dotenv  from 'dotenv';
 import authRoutes from './routes/auth';
 import inquiryRoutes from './routes/inquiry';
 import applicationRoutes from './routes/application';
-import { connectDB } from './config/db';
+
 
 dotenv.config();
 
 const app  = express();
 const PORT = process.env.PORT ?? 5000;
 
-// ── Connect MongoDB ───────────────────────────────────────────────────────────
-connectDB().catch((err) => console.error('MongoDB init failed:', err));
+
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use((req, _res, next) => {
